@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Col, Row } from 'antd';
+import { Card } from 'antd';
 import Signin from './signin'
 import Signup from './signup'
 import './assets/index.css'
