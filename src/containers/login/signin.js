@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import request from 'request-promise'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { openNotificationWithIcon as notify } from  '../../common/nortification'
 
@@ -41,7 +42,7 @@ class SignIn extends Component {
                 }
             
                 await request(options).then( data => {
-                    this.props.saveToken(JSON.parse(data))
+                    this.props.saveToken(JSON.parse(data), this.props.reference)
                     notify( 'success', `Hi`, `You\'re in`)
                 }).catch((e) => {
                     notify( 'error', 'Signin failed', 'Invalid creds, try again')

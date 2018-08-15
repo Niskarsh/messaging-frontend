@@ -23,6 +23,30 @@ class SignUp extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                let options = {
+                    withCredentials : true,
+                    method: 'POST',
+                    uri: 'https://localhost:3001/register',
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded',
+                        'Origin': 'http://localhost:3000/',
+                        'Access-Control-Request-Method': 'POST',
+                    },
+                    form: {
+                        emailId: values.email,
+                        password: values.password,
+                        firstname: values.firstname,
+                        lastname: values.lastname          
+                    }
+            
+                }
+            
+                await request(options).then( data => {
+                    
+                    notify( 'success', `Signup successfull`, `Sign in now`)
+                }).catch((e) => {
+                    notify( 'error', 'Signin failed', 'Invalid creds, try again')
+                });
             }
         });
     }

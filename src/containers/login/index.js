@@ -11,7 +11,8 @@ class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            signup: false
+            signup: false,
+            redirect: false
         }
     }
 
@@ -23,11 +24,12 @@ class Login extends Component {
         return (
 
             <div>
-                <Card className="commonCard" title={this.state.signup ? "A Firstimer" : "Returning user"} hoverable={true}>
+                {this.state.redirect ? <Redirect to="/dashboard" /> : <Card className="commonCard" title={this.state.signup ? "A Firstimer" : "Returning user"} hoverable={true}>
                     {
-                        this.state.signup ? <Signup reference={this}/> : <Signin saveToken={this.props.saveToken} reference={this}/>
+                        this.state.signup ? <Signup reference={this} /> : <Signin saveToken={this.props.saveToken} reference={this} />
                     }
                 </Card>
+                }
             </div>
         )
     }
@@ -35,11 +37,11 @@ class Login extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        saveToken : idToken => dispatch(save_token(idToken))
+        saveToken: (idToken, reference) => dispatch(save_token(idToken, reference))
 
     }
 }
 
 
 
-export default connect (null, mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(Login)
