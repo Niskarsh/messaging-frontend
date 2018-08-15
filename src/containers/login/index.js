@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Card } from 'antd';
 import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom"
 import Signin from './signin'
 import Signup from './signup'
 import { save_token } from '../../redux/actions/index'

@@ -29,10 +29,10 @@ class Dashboard extends Component {
 const mapStateToProps = state => {}
 
 const mapDispatchToProps = dispatch => {
-    return {
-        saveToken : idToken => dispatch(save_token(idToken))
+    // return {
+    //     saveToken : idToken => dispatch(save_token(idToken))
 
-    }
+    // }
 }
 
 

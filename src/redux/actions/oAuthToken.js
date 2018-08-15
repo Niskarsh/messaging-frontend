@@ -1,4 +1,4 @@
-import { SAVE_OAUTH_TOKEN } from './actionTypes'
+import { INITIATE_SAVE_OAUTH_TOKEN } from './actionTypes'
 
 export const save_token = (idToken, reference) => {
     return {

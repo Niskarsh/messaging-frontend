@@ -7,7 +7,7 @@ export const oAuthReducer = (state = initialState, action) => {
         case COMPLETE_SAVE_OAUTH_TOKEN:
             return {
                 ...state,
-                idToken: idToken
+                idToken: action.idToken
             }
     }
     return state

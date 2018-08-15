@@ -28,11 +28,12 @@ class SignIn extends Component {
                 let options = {
                     withCredentials : true,
                     method: 'POST',
-                    uri: 'https://localhost:3001/login',
+                    uri: 'http://localhost:3001/login',
                     headers: {
                         'content-type': 'application/x-www-form-urlencoded',
                         'Origin': 'http://localhost:3000/',
                         'Access-Control-Request-Method': 'POST',
+                        'Access-Control-Request-Headers': 'content-type, Authorization',
                     },
                     form: {
                         emailId: values.emailLogin,
@@ -41,8 +42,9 @@ class SignIn extends Component {
             
                 }
             
-                await request(options).then( data => {
-                    this.props.saveToken(JSON.parse(data), this.props.reference)
+                request(options).then( data => {
+                    console.log(data)
+                    this.props.saveToken(data, this.props.reference)
                     notify( 'success', `Hi`, `You\'re in`)
                 }).catch((e) => {
                     notify( 'error', 'Signin failed', 'Invalid creds, try again')

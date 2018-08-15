@@ -1,6 +1,8 @@
 
 import React, { Component } from 'react'
+import request from 'request-promise'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { openNotificationWithIcon as notify } from  '../../common/nortification'
 
 const FormItem = Form.Item;
 
@@ -26,25 +28,27 @@ class SignUp extends Component {
                 let options = {
                     withCredentials : true,
                     method: 'POST',
-                    uri: 'https://localhost:3001/register',
+                    uri: 'http://localhost:3001/register',
                     headers: {
                         'content-type': 'application/x-www-form-urlencoded',
                         'Origin': 'http://localhost:3000/',
                         'Access-Control-Request-Method': 'POST',
+                        'Access-Control-Request-Headers': 'content-type, Authorization'
                     },
                     form: {
                         emailId: values.email,
                         password: values.password,
-                        firstname: values.firstname,
-                        lastname: values.lastname          
+                        firstname: values.firstName,
+                        lastname: values.lastName          
                     }
             
                 }
             
-                await request(options).then( data => {
+                request(options).then( data => {
                     
                     notify( 'success', `Signup successfull`, `Sign in now`)
                 }).catch((e) => {
+                    console.log (e)
                     notify( 'error', 'Signin failed', 'Invalid creds, try again')
                 });
             }
