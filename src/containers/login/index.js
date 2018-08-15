@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Card } from 'antd';
+import { connect } from 'react-redux';
 import Signin from './signin'
 import Signup from './signup'
+import { save_token } from '../../redux/actions/index'
 import './assets/index.css'
 
 class Login extends Component {
@@ -23,7 +25,7 @@ class Login extends Component {
             <div>
                 <Card className="commonCard" title={this.state.signup ? "A Firstimer" : "Returning user"} hoverable={true}>
                     {
-                        this.state.signup ? <Signup reference={this}/> : <Signin reference={this}/>
+                        this.state.signup ? <Signup reference={this}/> : <Signin saveToken={this.props.saveToken} reference={this}/>
                     }
                 </Card>
             </div>
@@ -31,7 +33,13 @@ class Login extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        saveToken : idToken => dispatch(save_token(idToken))
+
+    }
+}
 
 
 
-export default Login
+export default connect (null, mapDispatchToProps)(Login)

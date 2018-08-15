@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { openNotificationWithIcon as notify } from  '../../common/nortification'
+
 
 const FormItem = Form.Item;
 
@@ -22,6 +24,29 @@ class SignIn extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                let options = {
+                    withCredentials : true,
+                    method: 'POST',
+                    uri: 'https://localhost:3001/login',
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded',
+                        'Origin': 'http://localhost:3000/',
+                        'Access-Control-Request-Method': 'POST',
+                    },
+                    form: {
+                        emailId: values.emailLogin,
+                        password: values.passwordLogin,            
+                    }
+            
+                }
+            
+                await request(options).then( data => {
+                    this.props.saveToken(JSON.parse(data))
+                    notify( 'success', `Hi`, `You\'re in`)
+                }).catch((e) => {
+                    notify( 'error', 'Signin failed', 'Invalid creds, try again')
+                });
+            
             }
         });
     }
@@ -47,7 +72,7 @@ class SignIn extends Component {
         return (
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem>
-                    {getFieldDecorator('email', {
+                    {getFieldDecorator('emailLogin', {
                         rules: [{ required: true, message: 'Forgetting Email !!!' },
                         {
                             validator: this.checkEmailId
@@ -57,7 +82,7 @@ class SignIn extends Component {
                     )}
                 </FormItem>
                 <FormItem>
-                    {getFieldDecorator('password', {
+                    {getFieldDecorator('passwordLogin', {
                         rules: [{ required: true, message: 'Forgetting Password !!!' }],
                     })(
                         <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
