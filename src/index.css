@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  padding: 10px;
+  position: absolute;
+  padding-bottom: 30px;
   font-family: Garamond;
   /* overflow : scroll; */
 }

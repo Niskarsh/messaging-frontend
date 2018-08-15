@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from 'antd';
+import { Card, Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom"
 import Signin from './signin'
@@ -24,14 +24,16 @@ class Login extends Component {
     render() {
         return (
 
-            <div>
-                {this.state.redirect ? <Redirect to="/dashboard" /> : <Card className="commonCard" title={this.state.signup ? "A Firstimer" : "Returning user"} hoverable={true}>
+            <Row>
+                <Col xs={2} sm={7} md={8} lg={8} xl={9}></Col>
+                <Col xs={20} sm={10} md={8} lg={8} xl={6}>{this.state.redirect ? <Redirect to="/dashboard" /> : <Card className="commonCard" title={this.state.signup ? "A Firstimer" : "Returning user"} hoverable={true}>
                     {
                         this.state.signup ? <Signup reference={this} /> : <Signin saveToken={this.props.saveToken} reference={this} />
                     }
                 </Card>
-                }
-            </div>
+                }</Col>
+                <Col xs={2} sm={7} md={8} lg={8} xl={9}></Col>
+            </Row>
         )
     }
 }
