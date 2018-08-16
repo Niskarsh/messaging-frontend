@@ -6,6 +6,7 @@ import { Layout, Button, Row, Col } from 'antd';
 import { openNotificationWithIcon as notify } from '../../common/nortification'
 import { MailRenderer } from './mailRenderer'
 import { logout } from '../../redux/actions/index'
+import { Compose} from '../compose/index'
 import './assets/index.css'
 
 const { Header, Content } = Layout;
@@ -107,6 +108,9 @@ class Dashboard extends Component {
 
 
             this.state.redirect ? <Redirect to="/" /> : <div>
+                {
+                    this.state.compose? <Compose idToken={this.props.idToken} width={wid} visible={true} reference={this}/>:null
+                }
                 
                     <Row>
                     <Col span={9}>
