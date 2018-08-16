@@ -97,7 +97,7 @@ class DrawerForm extends Component {
                 <Drawer
                     title="Compose"
                     width={this.props.width}
-                    placement="right"
+                    placement="left"
                     onClose={this.onClose}
                     maskClosable={false}
                     visible={this.props.visible && this.state.visible}

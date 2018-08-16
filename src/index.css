@@ -3,5 +3,11 @@ body {
   position: absolute;
   padding-bottom: 30px;
   font-family: Garamond;
+  text-align: center;
   /* overflow : scroll; */
+  background-image: url('./assets/bkg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; 
 }
+

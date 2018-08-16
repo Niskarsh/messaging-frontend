@@ -1,7 +1,16 @@
-#components-layout-demo-top .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255,255,255,.2);
-    margin: 16px 24px 16px 0;
-    float: left;
+
+  .header {
+
+    border: 2px solid white;
+    color: white;
+    border-radius: 5px;
+    margin: 30px;
+    margin-right: 0px;
+    top : 10vh;
+  }
+
+  .commonButton {
+    box-sizing: border-box;
+    margin: 20px;
+    top: 30vh;
   }

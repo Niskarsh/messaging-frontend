@@ -24,7 +24,6 @@ class SignIn extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
                 let options = {
                     withCredentials : true,
                     method: 'POST',
@@ -43,7 +42,6 @@ class SignIn extends Component {
                 }
             
                 request(options).then( data => {
-                    console.log(data)
                     this.props.saveToken(data, this.props.reference)
                     notify( 'success', `Hi`, `You\'re in`)
                 }).catch((e) => {
@@ -55,7 +53,6 @@ class SignIn extends Component {
     }
 
     RegisterClickHandler = (reference) => {
-        console.log("Inside")
         reference.setState({ signup: true })
     }
 

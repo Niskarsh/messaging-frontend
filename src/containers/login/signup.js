@@ -24,7 +24,6 @@ class SignUp extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
                 let options = {
                     withCredentials : true,
                     method: 'POST',
@@ -48,7 +47,6 @@ class SignUp extends Component {
                     
                     notify( 'success', `Signup successfull`, `Sign in now`)
                 }).catch((e) => {
-                    console.log (e)
                     notify( 'error', 'Signin failed', 'Invalid creds, try again')
                 });
             }
@@ -56,7 +54,6 @@ class SignUp extends Component {
     }
 
     RegisterClickHandler = (reference) => {
-        console.log("Inside")
         reference.setState({ signup: false })
     }
 
