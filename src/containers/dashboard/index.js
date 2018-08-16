@@ -113,7 +113,7 @@ class Dashboard extends Component {
                 }
                 
                     <Row>
-                    <Col span={9}>
+                    <Col xs={24} sm={24} md={24} lg={9} xl={9}>
                         
                         <div>
                             <Button className="commonButton" type="primary" onClick={this.showDrawer}>
@@ -122,7 +122,7 @@ class Dashboard extends Component {
                             <Button className="commonButton" type="primary" onClick={this.props.logoutHandler.bind(this, this)}>
                                 Logout
                     </Button></div></Col>
-                        <Col span={15}><div>
+                        <Col xs={24} sm={24} md={24} lg={15} xl={15}><div>
                             {
                                 this.state.messages.map((message, i) => {
 
