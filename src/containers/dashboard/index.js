@@ -6,7 +6,6 @@ import { Layout, Button, Row, Col } from 'antd';
 import { openNotificationWithIcon as notify } from '../../common/nortification'
 import { MailRenderer } from './mailRenderer'
 import { logout } from '../../redux/actions/index'
-import Compose from '../compose/index'
 import './assets/index.css'
 
 const { Header, Content } = Layout;
@@ -45,10 +44,10 @@ class Dashboard extends Component {
         let options = {
             withCredentials: true,
             method: 'GET',
-            uri: `http://localhost:3001/auth/inbox?auth=${this.props.idToken}`,
+            uri: `${process.env.REACT_APP_API_SERVER}/auth/inbox?auth=${this.props.idToken}`,
             headers: {
                 'Content-type': 'application/x-www-form-urlencoded',
-                'Origin': 'http://localhost:3000/',
+                'Origin': `${process.env.REACT_APP_SERVER}/`,
                 'Access-Control-Request-Method': 'GET',
                 'Access-Control-Request-Headers': 'Content-type, Authorization',
             }
@@ -73,10 +72,10 @@ class Dashboard extends Component {
         let options1 = {
             withCredentials: true,
             method: 'GET',
-            uri: `http://localhost:3001/auth/user?auth=${this.props.idToken}`,
+            uri: `${process.env.REACT_APP_API_SERVER}/auth/user?auth=${this.props.idToken}`,
             headers: {
                 'Content-type': 'application/x-www-form-urlencoded',
-                'Origin': 'http://localhost:3000/',
+                'Origin': `${process.env.REACT_APP_SERVER}/`,
                 'Access-Control-Request-Method': 'GET',
                 'Access-Control-Request-Headers': 'Content-type, Authorization',
             }

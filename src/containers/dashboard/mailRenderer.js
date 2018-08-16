@@ -11,10 +11,10 @@ export const MailRenderer = (props) => {
         let options = {
             withCredentials : true,
             method: 'PATCH',
-            uri: `http://localhost:3001/auth/block/${props.from}?auth=${props.idToken}`,
+            uri: `${process.env.REACT_APP_API_SERVER}/auth/block/${props.from}?auth=${props.idToken}`,
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
-                'Origin': 'http://localhost:3000/',
+                'Origin': `${process.env.REACT_APP_SERVER}/`,
                 'Access-Control-Request-Method': 'PATCH',
                 'Access-Control-Request-Headers': 'content-type, Authorization',
             }

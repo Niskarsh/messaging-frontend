@@ -27,10 +27,10 @@ class SignUp extends Component {
                 let options = {
                     withCredentials : true,
                     method: 'POST',
-                    uri: 'http://localhost:3001/register',
+                    uri: `${process.env.REACT_APP_API_SERVER}/register`,
                     headers: {
                         'content-type': 'application/x-www-form-urlencoded',
-                        'Origin': 'http://localhost:3000/',
+                        'Origin': `${process.env.REACT_APP_SERVER}/`,
                         'Access-Control-Request-Method': 'POST',
                         'Access-Control-Request-Headers': 'content-type, Authorization'
                     },
