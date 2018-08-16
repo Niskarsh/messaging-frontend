@@ -6,7 +6,7 @@ body {
   text-align: center;
   /* overflow : scroll; */
   background-image: url('./assets/bkg.jpg');
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: cover;
   background-position: center; 
 }
