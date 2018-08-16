@@ -6,7 +6,7 @@ import { Layout, Button, Row, Col } from 'antd';
 import { openNotificationWithIcon as notify } from '../../common/nortification'
 import { MailRenderer } from './mailRenderer'
 import { logout } from '../../redux/actions/index'
-import { Compose} from '../compose/index'
+import Compose from '../compose/index'
 import './assets/index.css'
 
 const { Header, Content } = Layout;
