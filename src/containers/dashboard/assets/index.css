@@ -9,8 +9,20 @@
     top : 10vh;
   }
 
-  .commonButton {
-    box-sizing: border-box;
-    margin: 20px;
-    top: 30vh;
+  
+
+  @media (max-width: 991px){
+    .commonButton {
+      box-sizing: border-box;
+      margin: 20px;
+      top: 2vh;
+    }
+  }
+
+  @media (min-width: 992px){
+    .commonButton {
+      box-sizing: border-box;
+      margin: 20px;
+      top: 30vh;
+    }
   }
